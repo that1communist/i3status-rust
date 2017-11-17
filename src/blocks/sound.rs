@@ -238,6 +238,7 @@ impl Block for Sound {
                     let volume = device.volume;
 
                     match e.button {
+						MouseButton::Left => Command::new("pavucontrol").args(&["--class=i3statusrustpavucontrol", on_click]
                         MouseButton::Right => device.toggle()?,
                         MouseButton::WheelUp => if volume < 100 {
                             device.set_volume(min(self.step_width, (100 - volume)) as i32)?;
